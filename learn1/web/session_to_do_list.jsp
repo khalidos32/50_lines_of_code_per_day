@@ -20,13 +20,20 @@
         </form>
         My to do List :
         <%
+            // create a list of session items
             List<String> items=(List<String>)session.getAttribute("MyToDoList");
-            if(items==null){
+            
+            // test if the list of session items is null or not
+            
+            if(items==null){//if null we create a new one
                 items=new <String>ArrayList();
                 session.setAttribute("MyToDoList", items);
             }
+            // get the new parameter(item) for the sission list
             String TheItem=request.getParameter("input_item");
+            
             if(TheItem!=null){
+                // if the list of session items doesn't conatain the new item add it
                 if(items.contains(TheItem)==false){
                     items.add(TheItem);
                 }
@@ -34,7 +41,9 @@
             }
         %>
         <ol>
+            
             <%
+            // try to print the items from the session list
                 for(String str:items){
                     out.println("<li>"+str+"</li>");
                 }
