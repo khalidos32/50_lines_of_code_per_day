@@ -28,6 +28,8 @@
             if(items==null){//if null we create a new one
                 items=new <String>ArrayList();
                 session.setAttribute("MyToDoList", items);
+                // set the max itervale(time)
+               // session.setMaxInactiveInterval(60*60*24*365);
             }
             // get the new parameter(item) for the sission list
             String TheItem=request.getParameter("input_item");
